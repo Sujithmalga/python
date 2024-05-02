@@ -1,7 +1,6 @@
 from fastapi import FastAPI
 from pydantic import BaseModel
 from typing import List
-import json
 
 
 class interview(BaseModel):
@@ -13,12 +12,11 @@ class interview(BaseModel):
 
 app = FastAPI()
 
-
-@app.get("/interview/")
+@app.get("/interview/", response_model=List[interview])
 async def get_data() -> List[interview]:
     product= []
     product.append(interview(question="how does jenkins works in cicd",feedback="very impacted",qtypes="hard",user="sujith"))
-    return {product.json}
+    return product
 
 @app.post("/interview/")
 async def create_data(pratice: interview):
