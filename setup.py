@@ -6,6 +6,7 @@ setup(
     version='0.1',
     packages=find_packages(),
     install_requires=[
+        'numpy>=1.21.2',
         # List your project dependencies here
         # 'requests', 'numpy', etc.
     ],
